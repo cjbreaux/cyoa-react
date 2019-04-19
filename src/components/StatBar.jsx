@@ -1,16 +1,19 @@
 import React from 'react';
-import PLAYER from '../mockData/mockUser';
-// import barbarian from '../assets/img/barbarian.png';
+import PropTypes from 'prop-types';
 
-function StatBar() {
-  console.log(`${PLAYER.playerClass}.png`);
+
+function StatBar(props) {
+
   return(
     <div>
       <h2>test</h2>
-    
-
+      <img src={require(`../assets/img/${props.playerImg}.png`)} />
     </div>
   );
 }
+
+StatBar.propTypes = {
+  playerImg: PropTypes.string
+};
 
 export default StatBar;
