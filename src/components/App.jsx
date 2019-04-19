@@ -1,8 +1,9 @@
 import React from 'react';
+import PlayerCreation from './PlayerCreation';
 
 function App() {
   return(
-    <h1>Test test test</h1>
+    <PlayerCreation/>
   );
 }
 
