@@ -8,22 +8,23 @@ function Start() {
     <div>
       <style jsx>{`
         .itemImages {
-          height: 10vh
+          width: 50%;
+
         }
 
         .itemImages:hover {
           background-color: red;
           cursor: pointer;
         }
+
             `}</style>
       <h1>Start View</h1>
-      <StatBar
-        playerClass={player.playerClass}
-        playerName={player.playerName}
-        playerItems={player.playerItems.map((item, index) =>
-        <img className='itemImages' key={index} src={require(`../assets/img/${item}.png`)} ></img>)}
-        hp={player.hp}
-        />
+        <StatBar
+          playerClass={player.playerClass}
+          playerName={player.playerName}
+          playerItems={player.playerItems.map((item, index) =>
+            <div><img className='itemImages' key={index} src={require(`../assets/img/${item}.png`)} ></img></div>)}
+          hp={player.hp} />
     </div>
   );
 }
