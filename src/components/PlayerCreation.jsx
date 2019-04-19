@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import barbarian  from '../assets/img/barbarian.png';
 import rogue from '../assets/img/rogue.png';
 import cleric from '../assets/img/cleric.png';
@@ -85,20 +86,20 @@ function PlayerCreation() {
         <label><span>Select one item: </span></label>
         <div>
           <label>
-            <input type='radio' name='playerItem' value='Rope' />
+            <input type='radio' name='playerItems' value='Rope' />
             <img src={rope}></img>
           </label>
           <label>
-            <input type='radio' name='playerItem' value='Knife' />
+            <input type='radio' name='playerItems' value='Knife' />
             <img src={knife}></img>
           </label>
           <label>
-            <input type='radio' name='playerItem' value='Potion' />
+            <input type='radio' name='playerItems' value='Potion' />
             <img src={potion}></img>
           </label>
         </div>
         <div>
-          <button type='submit'>Continue</button>
+          <button type='submit'><Link to='/start'>Continue</Link></button>
         </div>
       </form>
     </div>
