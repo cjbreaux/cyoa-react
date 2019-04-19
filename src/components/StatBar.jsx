@@ -6,12 +6,20 @@ function StatBar(props) {
 
   return(
     <div>
+      <syle jsx>{`
+        .inventory {
+          display: flex;
+        }
+        .itemImages {
+          background-color: blue;
+        }
+            `}</syle>
       <h2>{props.playerName} the {props.playerClass.charAt(0).toUpperCase() + props.playerClass.slice(1)}</h2>
       <h2>HP: {props.hp}</h2>
       <img src={require(`../assets/img/${props.playerClass}.png`)} />
       <h2>Inventory</h2>
       <hr/>
-      <div style={{display: 'flex'}}>
+      <div className='inventory'>
         {props.playerItems}
       </div>
       <hr/>
@@ -20,7 +28,10 @@ function StatBar(props) {
 }
 
 StatBar.propTypes = {
-  playerImg: PropTypes.string
+  playerClass: PropTypes.string,
+  playerName: PropTypes.string,
+  playerItems: PropTypes.string,
+  hp: PropTypes.number
 };
 
 export default StatBar;
