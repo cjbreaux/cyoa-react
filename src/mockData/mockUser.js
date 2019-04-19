@@ -1,7 +1,7 @@
 const PLAYER = {
   playerName: 'Grok',
   playerClass: 'rogue',
-  playerItems: ['rope','potion','knife'],
+  playerItems: ['rope','knife'],
   hp: 10
 };
 

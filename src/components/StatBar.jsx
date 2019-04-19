@@ -11,7 +11,6 @@ function StatBar(props) {
           display: flex;
           flex-basis: 0;
           flex-wrap: wrap;
-          border: 1px solid red;
         }
         .itemImages {
           background-color: blue;
@@ -42,7 +41,7 @@ function StatBar(props) {
 StatBar.propTypes = {
   playerClass: PropTypes.string,
   playerName: PropTypes.string,
-  playerItems: PropTypes.string,
+  playerItems: PropTypes.array,
   hp: PropTypes.number
 };
 
