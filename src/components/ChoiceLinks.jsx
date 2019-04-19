@@ -1,11 +1,9 @@
 import React from 'react';
 
-function ChoiceLinks() {
+function ChoiceLinks(props) {
   return(
     <div>
-      <a href="#">Choice Link</a>
-      <a href="#">Choice Link</a>
-      <a href="#">Choice Link</a>
+      {props.branches}
     </div>
   );
 }

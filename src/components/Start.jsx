@@ -6,6 +6,11 @@ import PLAYER from '../mockData/mockUser';
 
 function Start() {
   let player = PLAYER;
+  let branches = [
+    'Head over to the bridge',
+    'Investigate the overturned cart'
+  ];
+
   return(
     <div className='viewContainer'>
       <style jsx>{`
@@ -39,10 +44,13 @@ function Start() {
                   hp={player.hp} />
           </div>
           <div style={{gridArea:'text'}}>
-            <StoryText />
+            <StoryText
+               />
           </div>
           <div style={{gridArea:'choice'}}>
-            <ChoiceLinks />
+            <ChoiceLinks
+              branches={branches.map((branch, index) =>
+              <a href="#" key={index}>{branch}</a>)}/>
           </div>
     </div>
   );
