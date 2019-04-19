@@ -8,7 +8,12 @@ function Start() {
     <div>
       <h1>Start View</h1>
       <StatBar
-        playerImg={player.playerClass}/>
+        playerClass={player.playerClass}
+        playerName={player.playerName}
+        playerItems={player.playerItems.map((item, index) =>
+        <img key={index} src={require(`../assets/img/${item}.png`)} ></img>)}
+        hp={player.hp}
+        />
     </div>
   );
 }
