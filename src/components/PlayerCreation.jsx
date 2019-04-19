@@ -25,6 +25,19 @@ function PlayerCreation() {
           background-color: red;
         }
 
+        [type=text] {
+          height: 3vh;
+          width: 20vw;
+        }
+
+        input {
+          font-size: 2vw;
+        }
+
+        input::placeholder {
+          font-size: 2vw;
+        }
+
         img {
           width: 20vw;
           height: 25vh;
@@ -42,14 +55,19 @@ function PlayerCreation() {
           background-color: blue;
           cursor: pointer;
         }
+
+        span {
+          font-size: 3vw;
+        }
+
             `}</style>
       <form>
         <div>
-          <label>Character Name:
+          <label><span>Character Name: </span>
             <input type='text' id='playerName' placeholder='Enter your name here' />
           </label>
         </div>
-        <label>Choose Your Class: </label>
+        <label><span>Choose Your Class: </span></label>
         <div>
           <label>
             <input type='radio' name='playerClass' value='Barbarian' />
@@ -64,7 +82,7 @@ function PlayerCreation() {
             <img src={cleric}></img>
           </label>
         </div>
-        <label>Select one item: </label>
+        <label><span>Select one item: </span></label>
         <div>
           <label>
             <input type='radio' name='playerItem' value='Rope' />
