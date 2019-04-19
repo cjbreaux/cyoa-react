@@ -71,30 +71,30 @@ function PlayerCreation() {
         <label><span>Choose Your Class: </span></label>
         <div>
           <label>
-            <input type='radio' name='playerClass' value='Barbarian' />
+            <input type='radio' name='playerClass' value='barbarian' />
             <img src={barbarian}></img>
           </label>
           <label>
-            <input type='radio' name='playerClass' value='Rogue' />
+            <input type='radio' name='playerClass' value='rogue' />
             <img src={rogue}></img>
           </label>
           <label>
-            <input type='radio' name='playerClass' value='Cleric' />
+            <input type='radio' name='playerClass' value='cleric' />
             <img src={cleric}></img>
           </label>
         </div>
         <label><span>Select one item: </span></label>
         <div>
           <label>
-            <input type='radio' name='playerItems' value='Rope' />
+            <input type='radio' name='playerItems' value='rope' />
             <img src={rope}></img>
           </label>
           <label>
-            <input type='radio' name='playerItems' value='Knife' />
+            <input type='radio' name='playerItems' value='knife' />
             <img src={knife}></img>
           </label>
           <label>
-            <input type='radio' name='playerItems' value='Potion' />
+            <input type='radio' name='playerItems' value='potion' />
             <img src={potion}></img>
           </label>
         </div>
