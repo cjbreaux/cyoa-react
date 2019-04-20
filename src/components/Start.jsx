@@ -16,7 +16,6 @@ function Start() {
       <style jsx>{`
         .itemImages {
           width: 50%;
-
         }
 
         .itemImages:hover {
@@ -33,25 +32,29 @@ function Start() {
                     "choice choice choice";
           grid-gap: 5%;
         }
+        
+        a {
+          text-decoration: none;
+        }
 
             `}</style>
-          <div style={{gridArea:'side'}}>
-            <StatBar
-              playerClass={player.playerClass}
-              playerName={player.playerName}
-              playerItems={player.playerItems.map((item, index) =>
-                <div><img className='itemImages' key={index} src={require(`../assets/img/${item}.png`)} ></img></div>)}
-                  hp={player.hp} />
-          </div>
-          <div style={{gridArea:'text'}}>
-            <StoryText
-               />
-          </div>
-          <div style={{gridArea:'choice'}}>
-            <ChoiceLinks
-              branches={branches.map((branch, index) =>
-              <a href="#" key={index}>{branch}</a>)}/>
-          </div>
+      <div style={{gridArea:'side'}}>
+        <StatBar
+          playerClass={player.playerClass}
+          playerName={player.playerName}
+          playerItems={player.playerItems.map((item, index) =>
+            <div><img className='itemImages' key={index} src={require(`../assets/img/${item}.png`)} ></img></div>)}
+          hp={player.hp} />
+      </div>
+      <div style={{gridArea:'text'}}>
+        <StoryText
+        />
+      </div>
+      <div style={{gridArea:'choice'}}>
+        <ChoiceLinks
+          branches={branches.map((branch, index) =>
+            <a href="#" key={index}>{branch}</a>)}/>
+      </div>
     </div>
   );
 }
