@@ -40,15 +40,15 @@ function PlayerCreation() {
         }
 
         img {
-          width: 20vw;
-          height: 25vh;
+          width: 15vw;
+
         }
 
         button {
           height: 5vh;
           width: 15vw;
           border-radius: 15px;
-          font-size: 3vw;
+          font-size: 2vw;
         }
 
         button:hover {

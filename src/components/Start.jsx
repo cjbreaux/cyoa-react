@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StatBar from './StatBar';
 import StoryText from './StoryText';
 import ChoiceLinks from './ChoiceLinks';
@@ -7,15 +8,19 @@ import PLAYER from '../mockData/mockUser';
 function Start() {
   let player = PLAYER;
   let branches = [
-    'Head over to the bridge',
-    'Investigate the overturned cart'
+    {path: '/bridge',  description: 'Head over to the bridge'},
+    {path: '/cart', description:'Investigate the overturned cart'}
   ];
+
+  if (PLAYER.playerItems.includes('rope')) {
+    branches.push({path: '/bridge', description:'Use your rope for something'});
+  }
 
   return(
     <div className='viewContainer'>
       <style jsx>{`
         .itemImages {
-          width: 50%;
+          width: 100%;
         }
 
         .itemImages:hover {
@@ -29,10 +34,10 @@ function Start() {
                     "side text text"
                     "side text text"
                     "side text text"
-                    "choice choice choice";
+                    ". choice .";
           grid-gap: 5%;
         }
-        
+
         a {
           text-decoration: none;
         }
@@ -43,7 +48,7 @@ function Start() {
           playerClass={player.playerClass}
           playerName={player.playerName}
           playerItems={player.playerItems.map((item, index) =>
-            <div><img className='itemImages' key={index} src={require(`../assets/img/${item}.png`)} ></img></div>)}
+            <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
           hp={player.hp} />
       </div>
       <div style={{gridArea:'text'}}>
@@ -53,7 +58,7 @@ function Start() {
       <div style={{gridArea:'choice'}}>
         <ChoiceLinks
           branches={branches.map((branch, index) =>
-            <a href="#" key={index}>{branch}</a>)}/>
+            <a href="#" key={index}><Link to={branch.path}>{branch.description}</Link></a>)}/>
       </div>
     </div>
   );

@@ -9,11 +9,8 @@ function StatBar(props) {
       <style jsx>{`
         .inventory {
           display: flex;
-          flex-basis: 0;
-          flex-wrap: wrap;
         }
         .itemImages {
-          background-color: blue;
         }
         .panel {
           width: 20vw;
