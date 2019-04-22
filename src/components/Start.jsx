@@ -18,7 +18,7 @@ function Start() {
 
   return(
     <div className='viewContainer'>
-      <style jsx>{`
+      <style global jsx>{`
         .itemImages {
           width: 100%;
         }
