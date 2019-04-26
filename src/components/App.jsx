@@ -5,6 +5,18 @@ import Start from './Start';
 import Bridge from './Bridge';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      player: {
+        playerName: null,
+        playerClass: null,
+        playerItems: [],
+        hp: 10
+      }
+    };
+  }
+  
   render() {
     return(
       <div className='container'>

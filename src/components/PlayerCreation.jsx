@@ -9,6 +9,10 @@ import potion from '../assets/img/potion.png';
 
 //make forms required after testing
 function PlayerCreation() {
+  function handleFormSubmission(event) {
+    event.preventDefault();
+    alert('working');
+  }
   return (
     <div>
       <style jsx>{`
@@ -62,7 +66,7 @@ function PlayerCreation() {
         }
 
             `}</style>
-      <form>
+      <form onSubmit={handleFormSubmission}>
         <div>
           <label><span>Character Name: </span>
             <input type='text' id='playerName' placeholder='Enter your name here' />
@@ -99,7 +103,7 @@ function PlayerCreation() {
           </label>
         </div>
         <div>
-          <button type='submit'><Link to='/start'>Continue</Link></button>
+          <button type='submit'>Continue</button>
         </div>
       </form>
     </div>
