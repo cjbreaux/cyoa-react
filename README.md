@@ -6,7 +6,7 @@ Chris Breaux
 
 #### Date of Completion
 
-4.19.2019
+4.26.2019
 
 ### Description
 
@@ -18,7 +18,12 @@ Additionally, I'm attempting a more modular design that will reuse components th
 
 ### Planning
 
+This is the initial component diagram.
+
 ![initial component diagram ](src/assets/img/component-diagram.jpg)
+
+This diagram reflects the changes in component layout including where state will be held in the application. As each route will need access to state data, App is both the closest parent and best choice to hold state.
+
 ![revised component diagram ](src/assets/img/updatedComponentTree.jpg)
 
 ### Notes

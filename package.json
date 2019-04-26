@@ -4,7 +4,7 @@
   "description": "A \"Choose Your Own Adventure\" game recreated with React\"",
   "main": "index.js",
   "standard": {
-  "parser": "babel-eslint"
+    "parser": "babel-eslint"
   },
   "scripts": {
     "start": "webpack-dev-server --open",
