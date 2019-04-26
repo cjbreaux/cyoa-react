@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 function StoryText(props) {
   let playerClass = props.playerInfo.playerClass;
   let classText = null;
-  if (playerClass === 'rogue') {
+  if (playerClass === 'rogue' && !props.playerInfo.playerItems.includes('knife')) {
     classText = <p>{props.rogue}</p>;
   } else if (playerClass === 'barbarian') {
     classText = <p>{props.barbarian}</p>;
   } else if (playerClass === 'cleric') {
     classText = <p>{props.cleric}</p>;
   } else {
-    return <p>'Error'</p>;
+    classText = null;
   }
 
 
