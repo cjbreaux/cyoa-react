@@ -38,7 +38,7 @@ class App extends React.Component {
             `}</style>
         <Switch>
           <Route exact path='/' render={()=><PlayerCreation onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
-          <Route path='/start' component={Start} />
+          <Route path='/start' render={()=><Start playerInfo={this.state.player}/>}/>
           <Route path='/bridge' component={Bridge} />
         </Switch>
       </div>

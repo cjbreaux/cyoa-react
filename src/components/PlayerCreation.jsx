@@ -20,6 +20,7 @@ function PlayerCreation(props) {
     let _playerClass = form.elements.playerClass.value;
     let _playerItems = form.elements.playerItems.value;
     props.onCreateNewPlayer({playerName: _playerName.value, playerClass: _playerClass, playerItems: [_playerItems]});
+    location.hash = '/start';
 
   }
   return (

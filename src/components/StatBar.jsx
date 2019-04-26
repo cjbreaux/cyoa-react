@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function StatBar(props) {
 
   return(
@@ -21,7 +20,8 @@ function StatBar(props) {
 
         }
             `}</style>
-      <h2>{props.playerName} the {props.playerClass.charAt(0).toUpperCase() + props.playerClass.slice(1)}</h2>
+
+          <h2>{props.playerName.charAt(0).toUpperCase() + props.playerName.slice(1)} the {props.playerClass.charAt(0).toUpperCase() + props.playerClass.slice(1)}</h2>
       <h2>HP: {props.hp}</h2>
       <img className='classImage' src={require(`../assets/img/${props.playerClass}.png`)} />
       <h2>Inventory</h2>

@@ -1,18 +1,19 @@
 import React from 'react';
+// import PropTypes from 'react';
 import { Link } from 'react-router-dom';
 import StatBar from './StatBar';
 import StoryText from './StoryText';
 import ChoiceLinks from './ChoiceLinks';
-import PLAYER from '../mockData/mockUser';
 
-function Start() {
-  let player = PLAYER;
+
+function Start(props) {
+  console.log(props);
   let branches = [
     {path: '/bridge',  description: 'Head over to the bridge'},
     {path: '/cart', description:'Investigate the overturned cart'}
   ];
 
-  if (PLAYER.playerItems.includes('rope')) {
+  if (props.playerInfo.playerItems.includes('rope')) {
     branches.push({path: '/bridge', description:'Use your rope for something'});
   }
 
@@ -40,11 +41,11 @@ function Start() {
             `}</style>
       <div style={{gridArea:'side'}}>
         <StatBar
-          playerClass={player.playerClass}
-          playerName={player.playerName}
-          playerItems={player.playerItems.map((item, index) =>
+          playerClass={props.playerInfo.playerClass}
+          playerName={props.playerInfo.playerName}
+          playerItems={props.playerInfo.playerItems.map((item, index) =>
             <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
-          hp={player.hp} />
+          hp={props.playerInfo.hp} />
       </div>
       <div style={{gridArea:'text'}}>
         <StoryText
@@ -58,5 +59,8 @@ function Start() {
     </div>
   );
 }
+// Start.propTypes = {
+//   playerInfo: PropTypes.object
+// }
 
 export default Start;
