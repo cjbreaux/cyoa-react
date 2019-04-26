@@ -15,8 +15,16 @@ class App extends React.Component {
         hp: 10
       }
     };
+    this.handleCreateNewPlayer = this.handleCreateNewPlayer.bind(this);
   }
-  
+  handleCreateNewPlayer(newPlayer) {
+    let playerCopy = Object.assign({}, this.state.player);
+    playerCopy.playerName = newPlayer.playerName;
+    playerCopy.playerClass = newPlayer.playerClass;
+    playerCopy.playerItems = newPlayer.playerItems;
+    this.setState({player: playerCopy});
+
+  }
   render() {
     return(
       <div className='container'>
@@ -29,7 +37,7 @@ class App extends React.Component {
             }
             `}</style>
         <Switch>
-          <Route exact path='/' component={PlayerCreation} />
+          <Route exact path='/' render={()=><PlayerCreation onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
           <Route path='/start' component={Start} />
           <Route path='/bridge' component={Bridge} />
         </Switch>

@@ -1,5 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import barbarian  from '../assets/img/barbarian.png';
 import rogue from '../assets/img/rogue.png';
 import cleric from '../assets/img/cleric.png';
@@ -7,8 +8,10 @@ import rope from '../assets/img/rope.png';
 import knife from '../assets/img/knife.png';
 import potion from '../assets/img/potion.png';
 
-//make forms required after testing
-function PlayerCreation() {
+
+
+
+function PlayerCreation(props) {
   let _playerName = null;
 
   function handleFormSubmission(event) {
@@ -16,9 +19,7 @@ function PlayerCreation() {
     let form = event.target;
     let _playerClass = form.elements.playerClass.value;
     let _playerItems = form.elements.playerItems.value;
-    console.log(_playerItems);
-    console.log(_playerClass);
-    console.log(_playerName.value);
+    props.onCreateNewPlayer({playerName: _playerName.value, playerClass: _playerClass, playerItems: [_playerItems]});
 
   }
   return (
@@ -147,5 +148,9 @@ function PlayerCreation() {
     </div>
   );
 }
+
+PlayerCreation.propTypes = {
+  onCreateNewPlayer: PropTypes.func
+};
 
 export default PlayerCreation;
