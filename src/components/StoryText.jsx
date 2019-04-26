@@ -1,15 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function StoryText() {
+function StoryText(props) {
+  let playerClass = props.playerInfo.playerClass;
+  let classText = null;
+  if (playerClass === 'rogue') {
+    classText = <p>{props.rogue}</p>;
+  } else if (playerClass === 'barbarian') {
+    classText = <p>{props.barbarian}</p>;
+  } else if (playerClass === 'cleric') {
+    classText = <p>{props.cleric}</p>;
+  } else {
+    return <p>'Error'</p>;
+  }
+
+
   return (
     <div style={{backgroundColor:'yellow'}}>
-      <h1>The Story Begins</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1>{props.title}</h1>
+      <p>{props.main}</p>
+      {classText}
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     </div>
   );
 }
+
+StoryText.propTypes = {
+  playerInfo: PropTypes.object,
+  title: PropTypes.string,
+  main: PropTypes.string,
+  barbarian: PropTypes.string,
+  rogue: PropTypes.string,
+  cleric: PropTypes.string
+};
 
 export default StoryText;
