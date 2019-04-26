@@ -18,11 +18,12 @@ class App extends React.Component {
     this.handleCreateNewPlayer = this.handleCreateNewPlayer.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
   }
-  handleCreateNewPlayer(newPlayer) {
+  handleCreateNewPlayer(newPlayer, item) {
     let playerCopy = Object.assign({}, this.state.player);
     playerCopy.playerName = newPlayer.playerName;
     playerCopy.playerClass = newPlayer.playerClass;
     playerCopy.playerItems = newPlayer.playerItems;
+    playerCopy[item] = true;
     this.setState({player: playerCopy});
   }
 

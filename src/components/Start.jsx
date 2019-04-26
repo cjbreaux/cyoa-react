@@ -56,7 +56,7 @@ function Start(props) {
       <div style={{gridArea:'text'}}>
         <StoryText
         />
-      {grabKnife}
+        {grabKnife}
       </div>
       <div style={{gridArea:'choice'}}>
         <ChoiceLinks
@@ -67,7 +67,8 @@ function Start(props) {
   );
 }
 Start.propTypes = {
-  playerInfo: PropTypes.object
+  playerInfo: PropTypes.object,
+  onAddItem: PropTypes.func
 };
 
 
