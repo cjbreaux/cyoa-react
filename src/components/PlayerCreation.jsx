@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import barbarian  from '../assets/img/barbarian.png';
 import rogue from '../assets/img/rogue.png';
 import cleric from '../assets/img/cleric.png';
@@ -9,9 +9,17 @@ import potion from '../assets/img/potion.png';
 
 //make forms required after testing
 function PlayerCreation() {
+  let _playerName = null;
+
   function handleFormSubmission(event) {
     event.preventDefault();
-    alert('working');
+    let form = event.target;
+    let _playerClass = form.elements.playerClass.value;
+    let _playerItems = form.elements.playerItems.value;
+    console.log(_playerItems);
+    console.log(_playerClass);
+    console.log(_playerName.value);
+
   }
   return (
     <div>
@@ -66,39 +74,69 @@ function PlayerCreation() {
         }
 
             `}</style>
-      <form onSubmit={handleFormSubmission}>
+      <form
+        onSubmit={handleFormSubmission}>
+
         <div>
           <label><span>Character Name: </span>
-            <input type='text' id='playerName' placeholder='Enter your name here' />
+            <input
+              type='text'
+              name='playerName'
+              placeholder='Enter your name here'
+              ref={(input) => {_playerName = input;}}/>
           </label>
         </div>
         <label><span>Choose Your Class: </span></label>
         <div>
           <label>
-            <input type='radio' name='playerClass' value='barbarian' />
+            <input
+              type='radio'
+              name='playerClass'
+              value='barbarian'
+            />
             <img src={barbarian}></img>
           </label>
           <label>
-            <input type='radio' name='playerClass' value='rogue' />
+            <input
+              type='radio'
+              name='playerClass'
+              value='rogue'
+            />
             <img src={rogue}></img>
           </label>
           <label>
-            <input type='radio' name='playerClass' value='cleric' />
+            <input
+              type='radio'
+              name='playerClass'
+              value='cleric'
+            />
             <img src={cleric}></img>
           </label>
         </div>
         <label><span>Select one item: </span></label>
         <div>
           <label>
-            <input type='radio' name='playerItems' value='rope' />
+            <input
+              type='radio'
+              name='playerItems'
+              value='rope'
+            />
             <img src={rope}></img>
           </label>
           <label>
-            <input type='radio' name='playerItems' value='knife' />
+            <input
+              type='radio'
+              name='playerItems'
+              value='knife'
+            />
             <img src={knife}></img>
           </label>
           <label>
-            <input type='radio' name='playerItems' value='potion' />
+            <input
+              type='radio'
+              name='playerItems'
+              value='potion'/>
+
             <img src={potion}></img>
           </label>
         </div>
