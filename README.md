@@ -19,6 +19,7 @@ Additionally, I'm attempting a more modular design that will reuse components th
 ### Planning
 
 ![initial component diagram ](src/assets/img/component-diagram.jpg)
+![revised component diagram ](src/assets/img/updatedComponentTree.jpg)
 
 ### Notes
 
