@@ -8,10 +8,13 @@ import ChoiceLinks from './ChoiceLinks';
 
 function Bridge(props) {
   let branches = [
-    {path: '/start',  description: 'GO back to start'},
-    {path: '/', description:'go back to player creator'}
+    {path: '/forest',  description: 'Attempt to cross the bridge'},
+    {path: '/start', description:'Turn around'}
   ];
 
+  if (props.playerInfo.playerItems.includes('rope')) {
+    branches.push({path: '/valley', description:'Use your rope to climb down into the gorge'});
+  }
   // for( var i = 0; i < player.playerItems.length; i++){
   //   if ( player.playerItems[i] === 'rope') {
   //     player.playerItems.splice(i, 1);
@@ -53,6 +56,12 @@ function Bridge(props) {
       </div>
       <div style={{gridArea:'text'}}>
         <StoryText
+          playerInfo={props.playerInfo}
+          title={'A Bridge Too Far'}
+          main={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+          barbarian={'Flavor text for Barbarian'}
+          rogue={'Because you are a Rogue, you see something the other classes do not'}
+          cleric={'Flavor text for the Cleric'}
         />
       </div>
       <div style={{gridArea:'choice'}}>

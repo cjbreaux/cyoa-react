@@ -9,20 +9,14 @@ import ChoiceLinks from './ChoiceLinks';
 
 function Start(props) {
   let branches = [
-    {path: '/bridge',  description: 'Head over to the bridge', id: v4()},
+    {path: '/bridge',  description: 'Walk down the overgrown path', id: v4()},
     {path: '/cart', description:'Investigate the overturned cart', id: v4()}
   ];
-
-  if (props.playerInfo.playerItems.includes('rope')) {
-    branches.push({path: '/bridge', description:'Use your rope for something', id: v4()});
-  }
 
   let grabKnife = null;
   if (props.playerInfo.playerClass === 'rogue') {
     grabKnife = <button disabled={props.playerInfo.knife === true ? true : false} onClick={()=>props.onAddItem('knife')}>Pick up the item?</button>;
   }
-
-
 
   return(
     <div className='viewContainer'>

@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import PlayerCreation from './PlayerCreation';
 import Start from './Start';
 import Bridge from './Bridge';
+import Forest from './Forest';
 
 
 class App extends React.Component {
@@ -76,6 +77,11 @@ class App extends React.Component {
               <Bridge
                 playerInfo={this.state.player}
                 onAddItem={this.handleAddItem}/>}/>
+          <Route
+            path='/forest'
+            render={()=>
+              <Forest
+                playerInfo={this.state.player}/>}/>
         </Switch>
       </div>
     );

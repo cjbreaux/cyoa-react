@@ -1,11 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import barbarian  from '../assets/img/barbarian.png';
 import rogue from '../assets/img/rogue.png';
 import cleric from '../assets/img/cleric.png';
 import rope from '../assets/img/rope.png';
-import knife from '../assets/img/knife.png';
 import potion from '../assets/img/potion.png';
 import lantern from '../assets/img/lantern.png';
 
@@ -132,7 +130,7 @@ function PlayerCreation(props) {
               name='playerItems'
               value='lantern'
             />
-          <img src={lantern}></img>
+            <img src={lantern}></img>
           </label>
           <label>
             <input
