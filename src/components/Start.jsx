@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import StatBar from './StatBar';
 import StoryText from './StoryText';
@@ -7,7 +7,6 @@ import ChoiceLinks from './ChoiceLinks';
 
 
 function Start(props) {
-  console.log(props);
   let branches = [
     {path: '/bridge',  description: 'Head over to the bridge'},
     {path: '/cart', description:'Investigate the overturned cart'}
@@ -59,8 +58,10 @@ function Start(props) {
     </div>
   );
 }
-// Start.propTypes = {
-//   playerInfo: PropTypes.object
-// }
+Start.propTypes = {
+  playerInfo: PropTypes.object
+};
+
+
 
 export default Start;

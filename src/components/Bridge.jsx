@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import StatBar from './StatBar';
 import StoryText from './StoryText';
 import ChoiceLinks from './ChoiceLinks';
-import PLAYER from '../mockData/mockUser';
 
-function Bridge() {
-  let player = PLAYER;
+
+function Bridge(props) {
   let branches = [
     {path: '/start',  description: 'GO back to start'},
     {path: '/', description:'go back to player creator'}
   ];
 
-  for( var i = 0; i < player.playerItems.length; i++){
-    if ( player.playerItems[i] === 'rope') {
-      player.playerItems.splice(i, 1);
-    }
-  }
-
-  if(player.playerClass !== 'rogue') {
-    player.hp--;
-  }
+  // for( var i = 0; i < player.playerItems.length; i++){
+  //   if ( player.playerItems[i] === 'rope') {
+  //     player.playerItems.splice(i, 1);
+  //   }
+  // }
+  //
+  // if(player.playerClass !== 'rogue') {
+  //   player.hp--;
+  // }
 
   return(
     <div className='viewContainer'>
@@ -43,14 +43,14 @@ function Bridge() {
         }
 
             `}</style>
-      <div style={{gridArea:'side'}}>
-        <StatBar
-          playerClass={player.playerClass}
-          playerName={player.playerName}
-          playerItems={player.playerItems.map((item, index) =>
-            <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
-          hp={player.hp} />
-      </div>
+        <div style={{gridArea:'side'}}>
+          <StatBar
+            playerClass={props.playerInfo.playerClass}
+            playerName={props.playerInfo.playerName}
+            playerItems={props.playerInfo.playerItems.map((item, index) =>
+              <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
+            hp={props.playerInfo.hp} />
+        </div>
       <div style={{gridArea:'text'}}>
         <StoryText
         />
@@ -63,5 +63,9 @@ function Bridge() {
     </div>
   );
 }
+
+Bridge.propTypes = {
+  playerInfo: PropTypes.object
+};
 
 export default Bridge;

@@ -39,7 +39,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=><PlayerCreation onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
           <Route path='/start' render={()=><Start playerInfo={this.state.player}/>}/>
-          <Route path='/bridge' component={Bridge} />
+          <Route path='/bridge' render={()=><Bridge playerInfo={this.state.player}/>}/>
         </Switch>
       </div>
     );
