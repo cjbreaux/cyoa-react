@@ -16,6 +16,13 @@ function Start(props) {
     branches.push({path: '/bridge', description:'Use your rope for something'});
   }
 
+  let grabKnife = null;
+  if (props.playerInfo.playerClass === 'rogue') {
+    grabKnife = <button disabled={props.playerInfo.knife === true ? true : false} onClick={()=>props.onAddItem('knife')}>Pick up the knife</button>;
+  }
+
+
+
   return(
     <div className='viewContainer'>
       <style global jsx>{`
@@ -49,11 +56,12 @@ function Start(props) {
       <div style={{gridArea:'text'}}>
         <StoryText
         />
+      {grabKnife}
       </div>
       <div style={{gridArea:'choice'}}>
         <ChoiceLinks
           branches={branches.map((branch, index) =>
-            <a href="#" key={index}><Link to={branch.path}>{branch.description}</Link></a>)}/>
+            <button key={index}><Link to={branch.path}>{branch.description}</Link></button>)}/>
       </div>
     </div>
   );

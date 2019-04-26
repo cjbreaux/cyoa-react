@@ -43,14 +43,14 @@ function Bridge(props) {
         }
 
             `}</style>
-        <div style={{gridArea:'side'}}>
-          <StatBar
-            playerClass={props.playerInfo.playerClass}
-            playerName={props.playerInfo.playerName}
-            playerItems={props.playerInfo.playerItems.map((item, index) =>
-              <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
-            hp={props.playerInfo.hp} />
-        </div>
+      <div style={{gridArea:'side'}}>
+        <StatBar
+          playerClass={props.playerInfo.playerClass}
+          playerName={props.playerInfo.playerName}
+          playerItems={props.playerInfo.playerItems.map((item, index) =>
+            <div key={index}><img className='itemImages'  src={require(`../assets/img/${item}.png`)} ></img></div>)}
+          hp={props.playerInfo.hp} />
+      </div>
       <div style={{gridArea:'text'}}>
         <StoryText
         />
@@ -58,7 +58,7 @@ function Bridge(props) {
       <div style={{gridArea:'choice'}}>
         <ChoiceLinks
           branches={branches.map((branch, index) =>
-            <a href="#" key={index}><Link to={branch.path}>{branch.description}</Link></a>)}/>
+            <button href="#" key={index}><Link to={branch.path}>{branch.description}</Link></button>)}/>
       </div>
     </div>
   );

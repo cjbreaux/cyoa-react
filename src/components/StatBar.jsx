@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function StatBar(props) {
+  
 
   return(
     <div className='panel'>

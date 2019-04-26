@@ -16,6 +16,7 @@ class App extends React.Component {
       }
     };
     this.handleCreateNewPlayer = this.handleCreateNewPlayer.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
   }
   handleCreateNewPlayer(newPlayer) {
     let playerCopy = Object.assign({}, this.state.player);
@@ -23,9 +24,18 @@ class App extends React.Component {
     playerCopy.playerClass = newPlayer.playerClass;
     playerCopy.playerItems = newPlayer.playerItems;
     this.setState({player: playerCopy});
-
   }
+
+  handleAddItem(item) {
+    let playerCopy = Object.assign({}, this.state.player);
+    playerCopy.playerItems.push(item);
+    playerCopy[item] = true;
+
+    this.setState({player: playerCopy});
+  }
+
   render() {
+    console.log(this.state);
     return(
       <div className='container'>
         <style jsx>{`
@@ -37,9 +47,23 @@ class App extends React.Component {
             }
             `}</style>
         <Switch>
-          <Route exact path='/' render={()=><PlayerCreation onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
-          <Route path='/start' render={()=><Start playerInfo={this.state.player}/>}/>
-          <Route path='/bridge' render={()=><Bridge playerInfo={this.state.player}/>}/>
+          <Route
+            exact path='/'
+            render={()=>
+              <PlayerCreation
+                onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
+          <Route
+            path='/start'
+            render={()=>
+              <Start
+                playerInfo={this.state.player}
+                onAddItem={this.handleAddItem}/>}/>
+          <Route
+            path='/bridge'
+            render={()=>
+              <Bridge
+                playerInfo={this.state.player}
+                onAddItem={this.handleAddItem}/>}/>
         </Switch>
       </div>
     );
