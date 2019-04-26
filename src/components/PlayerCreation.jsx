@@ -7,6 +7,7 @@ import cleric from '../assets/img/cleric.png';
 import rope from '../assets/img/rope.png';
 import knife from '../assets/img/knife.png';
 import potion from '../assets/img/potion.png';
+import lantern from '../assets/img/lantern.png';
 
 
 
@@ -129,9 +130,9 @@ function PlayerCreation(props) {
             <input
               type='radio'
               name='playerItems'
-              value='knife'
+              value='lantern'
             />
-            <img src={knife}></img>
+          <img src={lantern}></img>
           </label>
           <label>
             <input

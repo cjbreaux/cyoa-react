@@ -18,8 +18,8 @@ function Start(props) {
   }
 
   let grabKnife = null;
-  if (props.playerInfo.playerClass === 'rogue' && !props.playerInfo.playerItems.includes('knife')) {
-    grabKnife = <button onClick={()=>props.onAddItem('knife')}>Pick up the knife</button>;
+  if (props.playerInfo.playerClass === 'rogue') {
+    grabKnife = <button disabled={props.playerInfo.knife === true ? true : false} onClick={()=>props.onAddItem('knife')}>Pick up the item?</button>;
   }
 
 
