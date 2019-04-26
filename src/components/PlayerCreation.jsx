@@ -40,7 +40,7 @@ function PlayerCreation() {
         }
 
         img {
-          width: 15vw;
+          width: 10vw;
 
         }
 

@@ -13,7 +13,6 @@ function App() {
           width: 90vw;
           height: 90vh;
           margin: auto;
-
         }
         `}</style>
       <Switch>

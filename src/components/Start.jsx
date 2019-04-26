@@ -23,18 +23,13 @@ function Start() {
           width: 100%;
         }
 
-        .itemImages:hover {
-          background-color: red;
-          cursor: pointer;
-        }
-
         .viewContainer {
           display: grid;
+          max-height: 90vh;
           grid-template-areas:
                     "side text text"
                     "side text text"
-                    "side text text"
-                    ". choice .";
+                    "side choice choice";
           grid-gap: 5%;
         }
 

@@ -13,9 +13,9 @@ function Bridge() {
   ];
 
   for( var i = 0; i < player.playerItems.length; i++){
-     if ( player.playerItems[i] === 'rope') {
-       player.playerItems.splice(i, 1);
-     }
+    if ( player.playerItems[i] === 'rope') {
+      player.playerItems.splice(i, 1);
+    }
   }
 
   if(player.playerClass !== 'rogue') {
@@ -24,14 +24,9 @@ function Bridge() {
 
   return(
     <div className='viewContainer'>
-      <style global jsx>{`
+      <style jsx>{`
         .itemImages {
           width: 100%;
-        }
-
-        .itemImages:hover {
-          background-color: red;
-          cursor: pointer;
         }
 
         .viewContainer {
@@ -39,8 +34,7 @@ function Bridge() {
           grid-template-areas:
                     "side text text"
                     "side text text"
-                    "side text text"
-                    ". choice .";
+                    "side choice choice";
           grid-gap: 5%;
         }
 

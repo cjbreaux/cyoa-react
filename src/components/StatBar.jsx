@@ -10,21 +10,20 @@ function StatBar(props) {
         .inventory {
           display: flex;
         }
-        .itemImages {
+        .classImage {
+          width: 60%;
         }
         .panel {
           width: 20vw;
-          height: 60vh;
           border: 1px solid blue;
         }
         img {
-          width: 100%;
-          max-height: 20vh;
+
         }
             `}</style>
       <h2>{props.playerName} the {props.playerClass.charAt(0).toUpperCase() + props.playerClass.slice(1)}</h2>
       <h2>HP: {props.hp}</h2>
-      <img src={require(`../assets/img/${props.playerClass}.png`)} />
+      <img className='classImage' src={require(`../assets/img/${props.playerClass}.png`)} />
       <h2>Inventory</h2>
       <hr/>
       <div className='inventory'>
