@@ -6,7 +6,16 @@ import Bridge from './Bridge';
 
 function App() {
   return(
-    <div>
+    <div className='container'>
+      <style jsx>{`
+        .container {
+          border: 1px solid red;
+          width: 90vw;
+          height: 90vh;
+          margin: auto;
+
+        }
+        `}</style>
       <Switch>
         <Route exact path='/' component={PlayerCreation} />
         <Route path='/start' component={Start} />
