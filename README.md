@@ -36,13 +36,20 @@ This diagram reflects the changes in component layout including where state will
 
 ### Current Features
 
-* Hardcoded player data
+* User creates a player and the info is saved in the application state.
+* A hidden route appears if the player has a rope.
+* Rogues are able to find a knife.
+* Conditional rendering of text.
+* Can decrement health while digging through a pile of trash on the ledge.
 
 ### Planned Features
 
-* Player data collected from user input
+* Splash page
+* Remove items after using them
 
 ### Known Bugs
+
+* The cart area has not been built out yet
 
 
 ### Technologies and Resources
