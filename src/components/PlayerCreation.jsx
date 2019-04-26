@@ -25,6 +25,10 @@ function PlayerCreation(props) {
   return (
     <div>
       <style jsx>{`
+        *, *:before, *:after {
+          box-sizing: border-box;
+        }
+
         [type=radio] {
           opacity: 0;
           width: 0;
@@ -36,7 +40,8 @@ function PlayerCreation(props) {
         }
 
         [type=radio]:checked + img {
-          background-color: red;
+          box-shadow: inset 0 0 5px red;
+
         }
 
         [type=text] {
@@ -84,6 +89,7 @@ function PlayerCreation(props) {
               type='text'
               name='playerName'
               placeholder='Enter your name here'
+              required
               ref={(input) => {_playerName = input;}}/>
           </label>
         </div>
@@ -93,6 +99,7 @@ function PlayerCreation(props) {
             <input
               type='radio'
               name='playerClass'
+              required
               value='barbarian'
             />
             <img src={barbarian}></img>
@@ -120,6 +127,7 @@ function PlayerCreation(props) {
             <input
               type='radio'
               name='playerItems'
+              required
               value='rope'
             />
             <img src={rope}></img>

@@ -4,6 +4,7 @@ import PlayerCreation from './PlayerCreation';
 import Start from './Start';
 import Bridge from './Bridge';
 import Forest from './Forest';
+import Ledge from './Ledge';
 
 
 class App extends React.Component {
@@ -20,6 +21,8 @@ class App extends React.Component {
     this.handleCreateNewPlayer = this.handleCreateNewPlayer.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
     this.handleRemoveItem = this.handleRemoveItem.bind(this);
+    this.handleDecreaseHealth = this.handleDecreaseHealth.bind(this);
+    this.handleIncreaseHealth = this.handleIncreaseHealth.bind(this);
   }
   handleCreateNewPlayer(newPlayer, item) {
     let playerCopy = Object.assign({}, this.state.player);
@@ -47,12 +50,25 @@ class App extends React.Component {
     this.setState({player: playerCopy});
   }
 
+  handleDecreaseHealth(num) {
+    let playerCopy = Object.assign({}, this.state.player);
+    if (playerCopy.hp >= 0) {
+      playerCopy.hp -= num;
+      this.setState({player: playerCopy});
+    }
+  }
+
+  handleIncreaseHealth(num) {
+    let playerCopy = Object.assign({}, this.state.player);
+    playerCopy.hp += num;
+    this.setState({player: playerCopy});
+  }
+
   render() {
     return(
       <div className='container'>
         <style jsx>{`
             .container {
-              border: 1px solid red;
               width: 90vw;
               height: 90vh;
               margin: auto;
@@ -82,6 +98,13 @@ class App extends React.Component {
             render={()=>
               <Forest
                 playerInfo={this.state.player}/>}/>
+          <Route
+            path='/ledge'
+            render={()=>
+              <Ledge
+                playerInfo={this.state.player}
+                onDecreaseHealth={this.handleDecreaseHealth}
+                onAddItem={this.handleAddItem}/>}/>
         </Switch>
       </div>
     );

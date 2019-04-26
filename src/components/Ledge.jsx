@@ -5,25 +5,15 @@ import StatBar from './StatBar';
 import StoryText from './StoryText';
 import ChoiceLinks from './ChoiceLinks';
 
-
-function Bridge(props) {
+function Ledge(props) {
   let branches = [
-    {path: '/forest',  description: 'Attempt to cross the bridge'},
-    {path: '/start', description:'Turn around'}
+    {path: '/bridge',  description: 'Climb back up the rope'},
   ];
 
-  if (props.playerInfo.playerItems.includes('rope')) {
-    branches.push({path: '/ledge', description:'Use your rope to climb down onto the ledge'});
+  let damaged = null;
+  if (props.playerInfo.hp <= 5) {
+    damaged = <p>You've looked and looked, but there's nothing here!</p>;
   }
-  // for( var i = 0; i < player.playerItems.length; i++){
-  //   if ( player.playerItems[i] === 'rope') {
-  //     player.playerItems.splice(i, 1);
-  //   }
-  // }
-  //
-  // if(player.playerClass !== 'rogue') {
-  //   player.hp--;
-  // }
 
   return(
     <div className='viewContainer'>
@@ -57,12 +47,14 @@ function Bridge(props) {
       <div style={{gridArea:'text'}}>
         <StoryText
           playerInfo={props.playerInfo}
-          title={'A Bridge Too Far'}
-          main={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+          title={'A Perilous Ledge'}
+          main={'You find a weather-worn wooden box....etc'}
           barbarian={'Flavor text for Barbarian'}
-          rogue={'Because you are a Rogue, you see something the other classes do not'}
+          rogue={'Flavor text for Rogue'}
           cleric={'Flavor text for the Cleric'}
         />
+        <button disabled={props.playerInfo.hp <=5 ? true : false} onClick={()=>props.onDecreaseHealth(3)}>Rifle through the debris?</button>
+        {damaged}
       </div>
       <div style={{gridArea:'choice'}}>
         <ChoiceLinks
@@ -73,8 +65,9 @@ function Bridge(props) {
   );
 }
 
-Bridge.propTypes = {
-  playerInfo: PropTypes.object
+Ledge.propTypes = {
+  playerInfo: PropTypes.object,
+  onDecreaseHealth: PropTypes.func
 };
 
-export default Bridge;
+export default Ledge;

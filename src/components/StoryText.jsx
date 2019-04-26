@@ -16,7 +16,7 @@ function StoryText(props) {
 
 
   return (
-    <div style={{backgroundColor:'yellow'}}>
+    <div>
       <h1>{props.title}</h1>
       <p>{props.main}</p>
       {classText}

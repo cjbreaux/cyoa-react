@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function StatBar(props) {
-  
+
 
   return(
     <div className='panel'>
@@ -15,7 +15,8 @@ function StatBar(props) {
         }
         .panel {
           width: 20vw;
-          border: 1px solid blue;
+          border: 1px solid grey;
+          padding: 5%;
         }
         img {
 
