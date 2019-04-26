@@ -17,6 +17,7 @@ class App extends React.Component {
     };
     this.handleCreateNewPlayer = this.handleCreateNewPlayer.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleRemoveItem = this.handleRemoveItem.bind(this);
   }
   handleCreateNewPlayer(newPlayer, item) {
     let playerCopy = Object.assign({}, this.state.player);
@@ -31,7 +32,16 @@ class App extends React.Component {
     let playerCopy = Object.assign({}, this.state.player);
     playerCopy.playerItems.push(item);
     playerCopy[item] = true;
+    this.setState({player: playerCopy});
+  }
 
+  handleRemoveItem(item) {
+    let playerCopy = Object.assign({}, this.state.player);
+    for (let i = 0; i < playerCopy.playerItems.length; i++) {
+      if (playerCopy.playerItems[i] === item ) {
+        playerCopy.playerItems.splice(i, 1);
+      }
+    }
     this.setState({player: playerCopy});
   }
 
@@ -57,6 +67,7 @@ class App extends React.Component {
             render={()=>
               <Start
                 playerInfo={this.state.player}
+                onRemoveItem={this.handleRemoveItem}
                 onAddItem={this.handleAddItem}/>}/>
           <Route
             path='/bridge'

@@ -68,7 +68,8 @@ function Start(props) {
 }
 Start.propTypes = {
   playerInfo: PropTypes.object,
-  onAddItem: PropTypes.func
+  onAddItem: PropTypes.func,
+  onRemoveItem: PropTypes.func
 };
 
 
