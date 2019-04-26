@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import PlayerCreation from './PlayerCreation';
 import Start from './Start';
 import Bridge from './Bridge';
+import Splash from './Splash';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,6 +60,9 @@ class App extends React.Component {
         <Switch>
           <Route
             exact path='/'
+            component={Splash}/>
+          <Route
+           path='/create'
             render={()=>
               <PlayerCreation
                 onCreateNewPlayer={this.handleCreateNewPlayer}/>}/>
