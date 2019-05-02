@@ -75,7 +75,7 @@ $ npm i
 ```
 * After the files have downloaded, run the following:
 ```html
-$ ng start
+$ npm start
 ```
 
 ### Stretch Goals
